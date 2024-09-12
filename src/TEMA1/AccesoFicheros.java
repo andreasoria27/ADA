@@ -12,16 +12,17 @@ import java.util.List;
 
 public class AccesoFicheros {
     public static void main(String[] args) {
-    try (FileWriter fw = new FileWriter("files/fichero1.txt")){
-        fw.write("Texto de prueba");
-    } catch (IOException e) {
-        System.err.println("");
-            }
+        try (FileWriter fw = new FileWriter(args[0])) {
+            fw.write("Texto de prueba");
+        } catch (IOException e) {
+            System.err.println("Error");
+        }
+
 
 //Files, FIle, Path,Paths
 File file = new File("files/fichero1.txt");
 if (file.exists()){
-    System.out.println("el fichero exite");
+    System.out.println("el fichero existe");
         }
         System.out.println(file.getAbsoluteFile());
 
@@ -32,7 +33,7 @@ if (Files.exists(path)){
 }
 
         try {
-            Files.write(path,"Soy ANdrea".getBytes(),StandardOpenOption.APPEND);
+            Files.write(path,"Soy Andrea".getBytes(),StandardOpenOption.APPEND);
 
             Files.writeString(path,"estoy en clase de ADA", StandardOpenOption.APPEND);
           List<String> lines = Files.readAllLines(path);
